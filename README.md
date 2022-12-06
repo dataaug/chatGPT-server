@@ -25,9 +25,10 @@ curl -XGET http://43.155.173.103:5001/chat?q=Write%20a%20python%20program%20to%2
 ```
 或者在任意机器上运行
 ```bash
-python3 server.py
+python3 chat.py
 ```
 以直接和chatGPT进行交互
+注意以上的ip也是个人测试ip，不长期维护，需要更换为自己机器的ip
 
 ## Quick Start
 Openai does not provide chatGPT service in some regions, so you need to apply for servers in South Korea, Japan and other regions for transit
