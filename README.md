@@ -4,7 +4,12 @@ pip3 install revChatGPT --upgrade
 pip3 install flask
 ```
 
-### 快速开始
+### 快速开始（个人测试账户，不长期维护，仅短期有效）
+```bash
+python3 chat.py
+```
+
+### 部署服务
 openai对部分地区不提供chatGPT服务，所以需要申请韩国日本等地区服务器进行中转
 
 在申请完自己的服务器并且开放接口后，可以用此套代码进行部署，并且使用chatGPT.py的示例代码在任意地方访问chatGPT服务
@@ -32,6 +37,13 @@ python3 chat.py
 注意以上的ip也是个人测试ip，不长期维护，需要更换为自己机器的ip
 
 ## Quick Start
+```bash
+python3 chat.py
+```
+
+
+
+## Deploy service
 Openai does not provide chatGPT service in some regions, so you need to apply for servers in South Korea, Japan and other regions for transit
 
 After applying for your own server and opening the interface, you can use this set of code to deploy, and use the sample code of chatGPT.py to access the chatGPT service anywhere
