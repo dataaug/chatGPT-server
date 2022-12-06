@@ -9,7 +9,7 @@ openai对部分地区不提供chatGPT服务，所以需要申请韩国日本等�
 
 在申请完自己的服务器并且开放接口后，可以用此套代码进行部署，并且使用chatGPT.py的示例代码在任意地方访问chatGPT服务
 
-我将一个测试token放在脚本中，并不保证其长期有效，可以自行购买或申请账户后填入chat2gpt.py中的email和password字段以获得稳定的服务
+我将一个测试token放在脚本中，并不保证其长期有效，可以自行购买或申请账户后填入config.json中的email和password字段以获得稳定的服务
 
 首先, 在你的云机器上开通端口，以5001为例
 
@@ -36,7 +36,7 @@ Openai does not provide chatGPT service in some regions, so you need to apply fo
 
 After applying for your own server and opening the interface, you can use this set of code to deploy, and use the sample code of chatGPT.py to access the chatGPT service anywhere
 
-I put a test token in the script, which does not guarantee its long-term validity. You can purchase it yourself or fill in the email and password fields in chat2gpt.py after applying for an account to obtain stable services
+I put a test token in the script, which does not guarantee its long-term validity. You can purchase it yourself or fill in the email and password fields in config.json after applying for an account to obtain stable services
 
 First, open a port on your cloud machine, taking 5001 as an example
 
