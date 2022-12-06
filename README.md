@@ -28,6 +28,7 @@ curl -XGET http://43.155.173.103:5001/chat?q=Write%20a%20python%20program%20to%2
 python3 chat.py
 ```
 以直接和chatGPT进行交互
+
 注意以上的ip也是个人测试ip，不长期维护，需要更换为自己机器的ip
 
 ## Quick Start
@@ -54,3 +55,6 @@ Or run on any machine
 python3 server.py
 ```
 to directly interact with chatGPT
+
+Note that the above IP addresses are also personal test IP addresses, which do not require long-term maintenance and need to be replaced with their own machine IP addresses
+
