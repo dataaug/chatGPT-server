@@ -1,12 +1,12 @@
+### 快速开始（官方服务不稳定多尝试几次，无库依赖，个人测试账户，不长期维护，仅短期有效）
+```bash
+python3 chat.py
+```
+
 ### 依赖 Dependency
 ```bash
 pip3 install revChatGPT --upgrade
 pip3 install flask
-```
-
-### 快速开始（个人测试账户，不长期维护，仅短期有效）
-```bash
-python3 chat.py
 ```
 
 ### 部署服务
