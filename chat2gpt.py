@@ -3,8 +3,8 @@ import json
 
 # Get your config in JSON
 class chat_with_GPT():
-    def __init__(self):
-        with open('config.json', 'r') as fr:
+    def __init__(self, config = 'config.json'):
+        with open(config, 'r') as fr:
             self.config = json.load(fr)
 
         self.chatbot = Chatbot(self.config, conversation_id=None)
