@@ -13,7 +13,15 @@ tool = chat_with_GPT()
 def chat():
     message = flask.request.args.get("q")
     print("Sending message: ", message)
-    response = tool.chat2GPT(message)
+    global tool
+    try:
+        response = tool.chat2GPT(message)
+    except Exception as e:
+        print('error:', e)
+        print('reset context')
+        tool = chat_with_GPT()
+        response = tool.chat2GPT(message)
+    # response = tool.chat2GPT(message)
     print("Response: ", response)
     return response
 
