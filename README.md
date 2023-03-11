@@ -1,3 +1,11 @@
+GPT3.5 API 已经发布，建议直接使用官方接口，本仓库提供中转示例
+```bash
+python3 server_official.py
+```
+
+```bash
+curl 43.155.134.160:5001/chat_post -d '{"message": [{"role": "user", "content": "你好"}] }'  -H 'Content-Type: application/json'
+```
 
 ---------分割线-----------
 ### 快速开始（官方服务不稳定多尝试几次，无库依赖，个人测试账户，不长期维护，仅短期有效）
