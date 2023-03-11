@@ -29,7 +29,7 @@ def chat_post():
         message = flask.request.json.get('message')
         assert message # 信息一定存在
         # 默认使用我自己的API KEY
-        YOUR_API_KEY = flask.request.json.get('YOUR_API_KEY', '')
+        YOUR_API_KEY = flask.request.json.get('YOUR_API_KEY', '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')
         # 默认使用 gpt-3.5-turbo 模型
         model = flask.request.json.get('model', 'gpt-3.5-turbo') 
 
@@ -54,7 +54,7 @@ def chat_post():
 
 
         response = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=json_data)        
-        return response
+        return response.json()
     
 
 def start_browser():
