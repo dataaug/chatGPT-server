@@ -1,10 +1,12 @@
-GPT3.5 API 已经发布，建议直接使用官方接口，本仓库提供中转示例
+## GPT3.5 API 已经发布，建议直接使用官方接口，本仓库提供中转示例
+#### 更改 ```server_official.py```中的API_TOKEN字段为自己的api token,然后在可以访问openai的服务器上开启服务
 ```bash
 python3 server_official.py
 ```
 
+#### 用以下方式调用服务
 ```bash
-curl 43.155.134.160:5001/chat_post -d '{"message": [{"role": "user", "content": "你好"}] }'  -H 'Content-Type: application/json'
+curl [YOUR_IP]:5001/chat_post -d '{"message": [{"role": "user", "content": "你好"}] }'  -H 'Content-Type: application/json'
 ```
 
 ---------分割线-----------
