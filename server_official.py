@@ -22,6 +22,19 @@ if not os.path.exists('all_request.csv'):
         'time', 'user', 'question', 'answer'))
     answerData_init.to_csv(f'all_request.csv', mode='a', encoding='utf-8', index=False, header = True)
 
+def save2csv(user, message, answer = ''):
+    row = {'time': [str(time.time())],
+               'user': [user],
+               'question': [message],
+               'answer': [answer],
+               }
+    answerData = pd.DataFrame(
+    columns=(
+        'time', 'user', 'question', 'answer'))
+    answerData = answerData.append(pd.DataFrame(row), ignore_index=True)
+    answerData.to_csv(f'all_request.csv', mode='a', encoding='utf-8', index=False, header = False)
+    return
+
 @APP.route("/chat_post", methods=["POST"])
 def chat_post():
     if flask.request.method == 'POST':
@@ -32,13 +45,25 @@ def chat_post():
         if message == 'enter_chat':
             return ''
 
+        if message == 'add_to_chat':
+            return '欢迎使用ChatGPT PRO，精心调整过的chatgpt，支持指定个人场景和各类生成指标，请输入#help查看使用说明'
         
+        if message == '#help':
+            return '''#new: 更新上下文
+                    #help: 查看帮助
+                    更多功能，敬请期待
+            '''
+
+        assert message # 信息一定存在
+
         # 用户id
         user = flask.request.json.get('user')
 
         if message == '#new' and user in user_info:
             del user_info[user]
-        assert message # 信息一定存在
+            save2csv(user, message) # 记录用户更新上下文的行为
+            return "已更新上下文"
+        
 
         # 默认使用我自己的API KEY
         YOUR_API_KEY = flask.request.json.get('YOUR_API_KEY', 'sk-OSyJfpbIkUGzmI7T3BlbkFJolE4eWg268YvtD9DZmuJ')
@@ -83,17 +108,18 @@ def chat_post():
         user_info[user] = all_message[1:]
         print('all_message after sent:', all_message)
 
+        save2csv(user, message, answer)
         # 将数据归档 'time', 'user', 'question', 'answer'
-        row = {'time': [str(time.time())],
-               'user': [user],
-               'question': [message],
-               'answer': [answer],
-               }
-        answerData = pd.DataFrame(
-        columns=(
-            'time', 'user', 'question', 'answer'))
-        answerData = answerData.append(pd.DataFrame(row), ignore_index=True)
-        answerData.to_csv(f'all_request.csv', mode='a', encoding='utf-8', index=False, header = False)
+        # row = {'time': [str(time.time())],
+        #        'user': [user],
+        #        'question': [message],
+        #        'answer': [answer],
+        #        }
+        # answerData = pd.DataFrame(
+        # columns=(
+        #     'time', 'user', 'question', 'answer'))
+        # answerData = answerData.append(pd.DataFrame(row), ignore_index=True)
+        # answerData.to_csv(f'all_request.csv', mode='a', encoding='utf-8', index=False, header = False)
         
         return answer
 
